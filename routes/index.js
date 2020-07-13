@@ -1,6 +1,7 @@
 const express = require("express")
 const router = express.Router()
-var api_key = '448784ad0ac9c5ec292343094b90f2bb-468bde97-e30e9d76';
+require("dotenv").config();
+var api_key = process.env.API_KEY;
 var domain = 'sandbox3dc8f04b83e8459e95d1c9b3ae77947f.mailgun.org';
 const mailgun = require('mailgun-js')({ apiKey: api_key, domain: domain });
 const flash = require("connect-flash")

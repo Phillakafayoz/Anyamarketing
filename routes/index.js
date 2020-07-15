@@ -1,10 +1,9 @@
 const express = require("express")
 const router = express.Router()
-require("dotenv").config();
-var api_key = process.env.API_KEY;
-var domain = 'sandbox3dc8f04b83e8459e95d1c9b3ae77947f.mailgun.org';
-const mailgun = require('mailgun-js')({ apiKey: api_key, domain: domain });
-const flash = require("connect-flash")
+const api_key = process.env.API_KEY
+const mailgun = require("mailgun-js");
+const DOMAIN = 'sandbox60261319f1d64f4a9cafd0820f22ec41.mailgun.org';
+const mg = mailgun({apiKey: api_key, domain: DOMAIN});
 
 router.get("/", (req, res) => {
     res.render("index")
@@ -34,20 +33,20 @@ router.get("/contact", (req, res) => {
 //post contact
 router.post("/contact", (req, res) => {
     const data = {
-        to: 'fayoz9876@gmail.com',
+        to: 'fayozbokhodirov@gmail.com',
         from: req.body.email,       
         subject: req.body.subject,
         text: req.body.message,
         
     };
-    mailgun.messages().send(data, function (error, body) {
-        if (error) {
+    mg.messages().send(data, function (error, body) {
+        if(error){
             console.log(error);
             
         }
         console.log(body);
-               
     });
+ 
     res.redirect("/")
 
 

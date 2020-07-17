@@ -9592,3 +9592,11 @@ textarea.form-control {
   100% {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -136px; } }
+#sel1{
+  width: 57px;
+   padding: 0;
+ /* padding-left: 10px; */
+  
+  border:none;
+   margin-left:220px;  
+}

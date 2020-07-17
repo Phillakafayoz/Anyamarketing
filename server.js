@@ -8,10 +8,6 @@ const flash = require('connect-flash');
 
 
 
-
-
-
-
 app.set("view engine", "ejs")
 app.set("views", __dirname + "/views")
 app.use(express.static("public"))

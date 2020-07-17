@@ -1,4 +1,8 @@
-require("dotenv").config();
+
+if (process.env.API_KEY !== "production") {
+    require("dotenv").parse();
+}
+
 const express = require("express")
 const app = express()
 const indexRouter = require("./routes/index")
